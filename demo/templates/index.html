@@ -8,15 +8,28 @@
   crossorigin="anonymous">
   </script>
 	<script type="text/javascript" src="static/main.js"></script>
+
+	<style>
+	.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+	}
+	</style>
 </head>
 <body>
 <h1>FYB Demo</h1>
 
 <div id="main">
-	<textarea rows="4" cols="50" id="fact">
-	</textarea> 
+	<textarea rows="4" cols="50" id="fact" placeholder="Please input your text here"></textarea> 
 	<div id="control">
-		<button type="button" name="predict" id="predict">predict</button>
+		<button type="button" class="button" name="predict" id="predict">predict</button>
 	</div>
 	<div id="display">
 		<p>
