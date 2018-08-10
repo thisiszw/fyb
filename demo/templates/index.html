@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo</title>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+  </script>
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="static/main.js"></script>
+
+	<style>
+	.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+	}
+
+	body {
+            font-family: "Arial", sans-serif;
+        }
+        
+        .bar {
+            fill: #5f89ad;
+        }
+        
+        .axis {
+            font-size: 13px;
+        }
+        
+        .axis path,
+        .axis line {
+            fill: none;
+            display: none;
+        }
+        
+        .label {
+            font-size: 13px;
+        }
+	</style>
+</head>
+<body>
+<h1>刑法罪名预测-测试版</h1>
+<h3>目前支持罪名：故意伤害，盗窃， 走私、贩卖、运输、制造毒品</h3>
+
+<div id="main">
+	<textarea rows="4" cols="50" id="fact" placeholder="Please input your text here"></textarea> 
+	<div id="control">
+		<button type="button" class="button" name="预测" id="predict">predict</button>
+	</div>
+	<div id="display">
+		<p>
+			<span id="fact-display"></span>
+		</p>
+		<p>
+			<!-- <span id="accusation-display"></span> -->
+			<div id="accusation-display"></div>
+		</p>
+		<p>
+			<span id="term-display"></span>
+		</p>
+	</div>
+</div>
+
+</body>
+</html>
