@@ -15,8 +15,10 @@ def predict():
 	print('TO PREDICT: ', fact)
 	prediction = tfidf_model.predict(fact)
 	return jsonify({
-		'accusation': prediction['accusation'], 
-		'term': prediction['term']
+		'accusation': [{'name': name, 'value': prob}
+					for name, prob in prediction['accusation'].items()], 
+		'term': prediction['term'], 
+		'fact': fact
 	})
 
 if __name__ == '__main__':
