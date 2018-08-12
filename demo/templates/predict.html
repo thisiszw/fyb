@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+  </script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="static/main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <style>
+  .progress-bar {
+    width: 0;
+    animation: progress 1.5s ease-in-out forwards;
+    
+    .title {
+      opacity: 0;
+      animation: show 0.35s forwards ease-in-out 0.5s;
+    }
+  } 
+
+  @keyframes progress {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  } 
+  @keyframes show  {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  </style>
+
+</head>
+<body style="margin:5%;padding:0">
+<h1>刑法罪名预测-测试版</h1>
+<h3>目前支持罪名：故意伤害，盗窃， 走私、贩卖、运输、制造毒品</h3>
+
+<div id="main">
+  <form action="/predict" method="post">
+    <div class="form-group">
+    <textarea class="form-control" name="fact" rows="10" placeholder="{{ data['fact'] }}"></textarea>    
+    <input class="btn btn-primary btn-lg btn-block" type="submit" value="预测">
+    </div>
+  </form>
+</div>
+
+<div class="jumbotron" id="predict-class">
+  <div class="container">
+    <h2>罪名预测</h2>
+    {% for d in data['accusation'] %}
+      <p>{{d['name']}}</p>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{d['value']}}" aria-valuemin="0" aria-valuemax="100" style="max-width: {{d['value']}}%; background-color: #4CAF50">
+            <span class="title">{{d['value']}}%</span>
+            </div>
+        </div>
+    {% endfor %}
+    <h2> 关键词 </h2>
+    <p>{{data["term"]}}</p>
+    </div>
+  </div>
+
+</body>
+</html>
